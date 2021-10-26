@@ -4,15 +4,19 @@ import java.util.Scanner;
 
 public class Parser 
 {
+    //Attributer
     private CommandWords commands;
     private Scanner reader;
 
+    //Contructor
     public Parser() 
     {
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
 
+
+    //Modtager input
     public Command getCommand() 
     {
         String inputLine;
@@ -34,6 +38,7 @@ public class Parser
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    //Viser komandoer
     public void showCommands()
     {
         commands.showAll();

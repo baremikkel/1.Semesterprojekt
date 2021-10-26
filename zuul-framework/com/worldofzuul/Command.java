@@ -21,30 +21,36 @@ package com.worldofzuul;
 
 public class Command
 {
+    //commandWord er handlingen og secondWord er retning
     private CommandWord commandWord;
     private String secondWord;
 
+    //Constructor
     public Command(CommandWord commandWord, String secondWord)
     {
         this.commandWord = commandWord;
         this.secondWord = secondWord;
     }
 
+    //returnere commandWord
     public CommandWord getCommandWord()
     {
         return commandWord;
     }
 
+    //returnere secondWord
     public String getSecondWord()
     {
         return secondWord;
     }
 
+    //tjekker om commandWord findes ellers returner den "?"
     public boolean isUnknown()
     {
         return (commandWord == CommandWord.UNKNOWN);
     }
 
+    //tjekker om kommandoen har et andet ord
     public boolean hasSecondWord()
     {
         return (secondWord != null);

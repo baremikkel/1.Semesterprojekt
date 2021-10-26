@@ -2,21 +2,24 @@ package com.worldofzuul;
 
 public class Game 
 {
+    //Attributer
     private Parser parser;
     private Room currentRoom;
         
-
+    //Constructor
     public Game() 
     {
         createRooms();
         parser = new Parser();
     }
 
+    //main der starter spillet
     public static void main(String[] args) {
         Game game = new Game();
         game.play();
     }
 
+    //Laver alle rummene og deres udgange
     private void createRooms()
     {
         Room outside, theatre, pub, lab, office;
@@ -43,6 +46,7 @@ public class Game
         currentRoom = outside;
     }
 
+    //Kører spillet så længe er true
     public void play() 
     {            
         printWelcome();
@@ -56,6 +60,7 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+    //Velkommenstekst
     private void printWelcome()
     {
         System.out.println();
@@ -66,6 +71,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
+    //en boolean der udfører kommandoen så længe programmet kører
     private boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
@@ -89,6 +95,7 @@ public class Game
         return wantToQuit;
     }
 
+    //Hjælpe tekst
     private void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
@@ -98,8 +105,10 @@ public class Game
         parser.showCommands();
     }
 
+    //går til det næste rum, så længe er en retning at følge... hvis der ikke noget rum skriver det "There is no door!"
     private void goRoom(Command command) 
     {
+        //Så hvis der ikke er en retning skriver den go where
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
@@ -118,6 +127,7 @@ public class Game
         }
     }
 
+    //Hvis man vil quit returnere den true ellers er den false.
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {
