@@ -22,28 +22,36 @@ public class Game
     //Laver alle rummene og deres udgange
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder,Bikeshop;
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        outsideSDU = new Room("outside the main entrance of SDU");
+        GydehuttenN = new Room("in the north end of the main hallway");
+        GydehuttenS = new Room("in the south end of the main hallway");
+        Cafeteria = new Room("in the cafeteria");
+        Fitness = new Room("in the SDU fitness");
+        Classroom = new Room("in your classroom");
+        Nedenunder = new Room("in the SDU bar");
+        Bikeshop = new Room("in the bikeshop");
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        outsideSDU.setExit("south", GydehuttenN);
 
-        theatre.setExit("west", outside);
+        GydehuttenN.setExit("north", outsideSDU);
+        GydehuttenN.setExit("west", Cafeteria);
+        GydehuttenN.setExit("east", Classroom);
+        GydehuttenN.setExit("south", GydehuttenS);
 
-        pub.setExit("east", outside);
+        GydehuttenS.setExit("north", GydehuttenN);
+        GydehuttenS.setExit("west", Nedenunder);
+        GydehuttenS.setExit("east", Fitness);
+        GydehuttenS.setExit("south", Bikeshop);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        Cafeteria.setExit("east", GydehuttenN);
+        Classroom.setExit("west",GydehuttenN);
+        Nedenunder.setExit("east",GydehuttenS);
+        Fitness.setExit("west", GydehuttenS);
 
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        Bikeshop.setExit("north",GydehuttenS);
+        currentRoom = outsideSDU;
     }
 
     //Kører spillet så længe er true
@@ -64,8 +72,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the world of SDU!");
+        System.out.println("World of SDU is a new, incredible adventure game. about bikesafety");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());

@@ -38,7 +38,7 @@ public class Room
     //Udskriver hvilke veje man kan tage i det specifikke rum.
     private String getExitString()
     {
-        String returnString = "Exits:";
+        String returnString = "Directions:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
             returnString += " " + exit;
