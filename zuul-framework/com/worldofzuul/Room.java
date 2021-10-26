@@ -8,12 +8,14 @@ public class Room
 {
     //Attributer
     private String description;
+    public String location;
     private HashMap<String, Room> exits;
+    public String quest = "This is a test";
 
     //Constructor der implementerer description og exits
-    public Room(String description) 
-    {
+    public Room(String description, String location) {
         this.description = description;
+        this.location = location;
         exits = new HashMap<String, Room>();
     }
 
@@ -50,6 +52,10 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    public String getLocation()
+    {
+        return location;
     }
 }
 

@@ -1,11 +1,15 @@
 package com.worldofzuul;
 
-public class Game 
+import java.util.*;
+
+public class Game
 {
     //Attributer
     private Parser parser;
     private Room currentRoom;
-        
+    String[] buyLocations = {"Cafeteria","Bikeshop","Nedenunder"};
+    String[] pickupLocations = {"Classroom","Fitness"};
+
     //Constructor
     public Game() 
     {
@@ -13,6 +17,16 @@ public class Game
         parser = new Parser();
     }
 
+    public void locations()
+    {
+        HashMap <String,String> pickUplocation = new HashMap<>();
+        pickUplocation.put("Cafeteria","Coffee");
+        pickUplocation.put("Bikeshop","Bikehelmet");
+        pickUplocation.put("Nedenunder","Beer");
+        pickUplocation.put("Classroom","Phone");
+        pickUplocation.put("Fitness","Dumbell");
+
+    }
     //main der starter spillet
     public static void main(String[] args) {
         Game game = new Game();
@@ -24,14 +38,14 @@ public class Game
     {
         Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder,Bikeshop;
       
-        outsideSDU = new Room("outside the main entrance of SDU");
-        GydehuttenN = new Room("in the north end of the main hallway");
-        GydehuttenS = new Room("in the south end of the main hallway");
-        Cafeteria = new Room("in the cafeteria");
-        Fitness = new Room("in the SDU fitness");
-        Classroom = new Room("in your classroom");
-        Nedenunder = new Room("in the SDU bar");
-        Bikeshop = new Room("in the bikeshop");
+        outsideSDU = new Room("outside the main entrance of SDU","outsideSDU");
+        GydehuttenN = new Room("in the north end of the main hallway","GydehuttenN");
+        GydehuttenS = new Room("in the south end of the main hallway","GydehuttenS");
+        Cafeteria = new Room("in the cafeteria","Cafeteria");
+        Fitness = new Room("in the SDU fitness","Fitness");
+        Classroom = new Room("in your classroom","Classroom");
+        Nedenunder = new Room("in the SDU bar","Nedenunder");
+        Bikeshop = new Room("in the bikeshop","Bikeshop");
         
         outsideSDU.setExit("south", GydehuttenN);
 
@@ -90,7 +104,6 @@ public class Game
             System.out.println("I don't know what you mean...");
             return false;
         }
-
         if (commandWord == CommandWord.HELP) {
             printHelp();
         }
@@ -100,6 +113,19 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
+        else if (commandWord == CommandWord.BUY) {
+            //wantToQuit = quit(command);
+            System.out.println("You bought a thing");
+        }
+        else if (commandWord == CommandWord.PICK_UP && Objects.equals(currentRoom.getLocation(), "Cafeteria")) {
+            //wantToQuit = quit(command);
+            System.out.println("You picked up a thing");
+        }
+        else
+        {
+            System.out.println("You can´t do this here!");
+        }
+
         return wantToQuit;
     }
 
