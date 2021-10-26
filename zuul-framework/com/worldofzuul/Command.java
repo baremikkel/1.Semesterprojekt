@@ -17,7 +17,7 @@
  * @version 2006.03.30
  */
 
-package worldofzuul;
+package com.worldofzuul;
 
 public class Command
 {

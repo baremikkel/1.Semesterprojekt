@@ -1,7 +1,6 @@
-package worldofzuul;
+package com.worldofzuul;
 
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Parser 
 {

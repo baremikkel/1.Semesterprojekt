@@ -1,8 +1,7 @@
-package worldofzuul;
+package com.worldofzuul;
 
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Room 
