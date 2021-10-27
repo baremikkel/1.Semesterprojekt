@@ -7,26 +7,19 @@ public class Game
     //Attributer
     private Parser parser;
     private Room currentRoom;
-    String[] buyLocations = {"Cafeteria","Bikeshop","Nedenunder"};
-    String[] pickupLocations = {"Classroom","Fitness"};
-
+    Inventory inventory;
+    Items items;
     //Constructor
     public Game() 
     {
         createRooms();
         parser = new Parser();
-    }
-
-    public void locations()
-    {
-        HashMap <String,String> pickUplocation = new HashMap<>();
-        pickUplocation.put("Cafeteria","Coffee");
-        pickUplocation.put("Bikeshop","Bikehelmet");
-        pickUplocation.put("Nedenunder","Beer");
-        pickUplocation.put("Classroom","Phone");
-        pickUplocation.put("Fitness","Dumbell");
+        inventory = new Inventory();
+        items = new Items();
 
     }
+
+
     //main der starter spillet
     public static void main(String[] args) {
         Game game = new Game();
@@ -37,7 +30,7 @@ public class Game
     private void createRooms()
     {
         Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder,Bikeshop;
-      
+
         outsideSDU = new Room("outside the main entrance of SDU","outsideSDU");
         GydehuttenN = new Room("in the north end of the main hallway","GydehuttenN");
         GydehuttenS = new Room("in the south end of the main hallway","GydehuttenS");
@@ -68,12 +61,10 @@ public class Game
         currentRoom = outsideSDU;
     }
 
-    //Kører spillet så længe er true
+    //Kører spillet så længe "finished" er true
     public void play() 
     {            
         printWelcome();
-
-                
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -93,11 +84,41 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
+    //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
+    //En booelean der tjekker om rummet man er i kan bruge kommandoen "Pickup"
+    boolean pickUpAbleRoom(String room)
+    {
+        boolean checker = false;
+        String[] rooms = {"Fitness","Classroom","Bikeshop"};
+        for(int i = 0; i < rooms.length;i++)
+        {
+            if(room == rooms[i])
+            {
+                checker = true;
+            }
+        }
+
+        return checker;
+    }
+    //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
+    boolean buyableRoom(String room)
+    {
+        boolean checker = false;
+        String[] rooms = {"Cafeteria","Nedenunder"};
+        for(int i = 0; i < rooms.length;i++)
+        {
+            if(room == rooms[i])
+            {
+                checker = true;
+            }
+        }
+        return checker;
+    }
+
     //en boolean der udfører kommandoen så længe programmet kører
     private boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
-
         CommandWord commandWord = command.getCommandWord();
 
         if(commandWord == CommandWord.UNKNOWN) {
@@ -113,13 +134,29 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
-        else if (commandWord == CommandWord.BUY) {
-            //wantToQuit = quit(command);
-            System.out.println("You bought a thing");
+        else if (commandWord == CommandWord.BUY && buyableRoom(currentRoom.getLocation())) {
+            inventory.addItem(command.getSecondWord());
+            System.out.println("You bought a "+command.getSecondWord());
         }
-        else if (commandWord == CommandWord.PICK_UP && Objects.equals(currentRoom.getLocation(), "Cafeteria")) {
-            //wantToQuit = quit(command);
-            System.out.println("You picked up a thing");
+        else if (commandWord == CommandWord.PICK_UP && pickUpAbleRoom(currentRoom.getLocation())) {
+            inventory.addItem(command.getSecondWord());
+            items.removeItem(currentRoom.getLocation(), command.getSecondWord());
+            System.out.println("You picked up "+command.getSecondWord());
+        }
+        else if(commandWord == CommandWord.INVENTORY)
+        {
+            inventory.listInventory();
+        }
+        else if(commandWord == CommandWord.INVESTIGATE)
+        {
+            if(pickUpAbleRoom(currentRoom.getLocation()))
+                items.checkItemsPickup(currentRoom);
+            else
+                items.checkItemsBuy(currentRoom);
+        }
+        else if(commandWord == CommandWord.SCAN)
+        {
+
         }
         else
         {

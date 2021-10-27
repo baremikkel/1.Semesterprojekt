@@ -10,7 +10,6 @@ public class Room
     private String description;
     public String location;
     private HashMap<String, Room> exits;
-    public String quest = "This is a test";
 
     //Constructor der implementerer description og exits
     public Room(String description, String location) {
