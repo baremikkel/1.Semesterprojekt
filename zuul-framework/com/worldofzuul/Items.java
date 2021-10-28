@@ -14,6 +14,8 @@ public class Items {
         BuyableItems.put("Cafeteria", new ArrayList<String>());
         BuyableItems.get("Cafeteria").add("Coffee");
         BuyableItems.get("Cafeteria").add("Sandwich");
+        BuyableItems.get("Cafeteria").add("Energi drik");
+        BuyableItems.get("Cafeteria").add("Cake");
         //Items to buy in nedenunder
         BuyableItems.put("Nedenunder", new ArrayList<String>());
         BuyableItems.get("Nedenunder").add("Odense classic");
@@ -44,10 +46,13 @@ public class Items {
         }
         else
         {
-
             System.out.println(PickupItems.get(location));
         }
-
+    }
+    //Tjekker om nøglen "room", indeholder "item"
+    boolean itemList(String item, String room)
+    {
+        return PickupItems.get(room).contains(item);
     }
     void removeItem(String key, String item)
     {
