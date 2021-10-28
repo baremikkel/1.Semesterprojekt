@@ -85,12 +85,12 @@ public class Game {
     boolean ItemsInRoom(String room) {
         boolean checker = false;
         String[] rooms = {"Fitness", "Classroom", "Bikeshop", "Cafeteria", "Nedenunder"};
-        for (int i = 0; i < rooms.length; i++) {
-            if (room == rooms[i]) {
+        for (String s : rooms) {
+            if (room == s) {
                 checker = true;
+                break;
             }
         }
-
         return checker;
     }
 
@@ -124,7 +124,6 @@ public class Game {
             }
             else
                 System.out.println("The thing you are trying to pickup doesn't exist.");
-
         }
         else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();

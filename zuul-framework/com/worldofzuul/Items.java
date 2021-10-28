@@ -3,8 +3,6 @@ package com.worldofzuul;
 import java.util.*;
 
 public class Items {
-
-    String location;
     Map<String, ArrayList<String>> BuyableItems = new HashMap<String,ArrayList<String>>();
     Map<String, ArrayList<String>> PickupItems = new HashMap<String,ArrayList<String>>();
 
