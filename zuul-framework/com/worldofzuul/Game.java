@@ -8,6 +8,7 @@ public class Game {
     private Room currentRoom;
     Inventory inventory;
     Items items;
+    Story story;
 
     //Constructor
     public Game() {
@@ -15,16 +16,17 @@ public class Game {
         parser = new Parser();
         inventory = new Inventory();
         items = new Items();
+        story = new Story();
 
     }
 
-/*
+
     //main der starter spillet
     public static void main(String[] args) {
         Game game = new Game();
         game.play();
     }
-*/
+
     //Laver alle rummene og deres udgange
     private void createRooms() {
         Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
@@ -72,9 +74,7 @@ public class Game {
 
     //Velkommenstekst
     private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the world of SDU!");
-        System.out.println("World of SDU is a new, incredible adventure game. about bikesafety");
+        story.readFromStory("<Start-Welcome>","<End-Welcome>");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -153,11 +153,7 @@ public class Game {
 
     //Hjælpe tekst
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your current command words are:");
-        parser.showCommands();
+        story.readFromStory("<Start-Help>","<End-Help>");
     }
 
     //går til det næste rum, så længe er en retning at følge... hvis der ikke noget rum skriver det "There is no door!"

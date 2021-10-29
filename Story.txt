@@ -1,0 +1,74 @@
+<Start-Welcome>
+Velkommen!
+Dette spil handler om hvorfor det er vigtigt at bruge cykelhjelm
+Du spiller som eleven "Samuel".
+Din opgave er at komme igennem en almindelig dag på SDU
+-Held og lykke
+<End-Welcome>
+
+<Start-outsideSDU>
+Du står udenforan SDU, og har lige låst din cykel!
+Det er vinter og det er pisse koldt.
+Du kigger på klokken og ser at der er 15 minutter til forlæsningen starter.
+----------
+* Karen: HEY SAMUEL!
+Du hører en der råber dit navn, du kigger op og ser at det er din kammerat Karen.
+* Dig: God morgen Karen hvordan var din cykeltur?
+* Karen: Den gik godt, udover ham tossen der valgte at kører ud lige foran mig,
+         så jeg blev nødt til at bremse så hårdt op, ham bagved mig ramte ind i mig.
+         Heldig hvis havde vi begge cykelhjelm på, så der skete ikke så meget.
+* Dig: Selvom jeg ikke selv kan lide at have cykelhjelm på, var det nu godt at du havde din på.
+* Karen: Hvorfor gør du ikke det?
+* Dig: Jeg føler ikke jeg ser super sej ud med cykelhjelm på.
+* Karen: Du må godt nok have dårlig selvtillid, hvis du er bange for at folk syntes du ikke ser sej ud med cykelhjelm på.
+         Jeg bruger min fordi den nedsætter risikoen for hovedskader, da man jo aldrig ved hvornår man kommer ud for en ulykke.
+* Dig: Hvorfor skal du altid være så klog?... Jeg skal lige i kantinen og købe min morgenkaffe, men vi ses til forlæsningen!
+<End-outsideSDU>
+
+<Start-Cafeteria>
+Du står og overvejer om du skal have en sandwich med til forlæsningen.
+----------
+Skriv: "investigate"
+For at skabe et overblik over hvilke muligheder du har.
+Skriv: "buy" + hvad du ville købe
+Eksempel: buy coffee
+<End-Cafeteria>
+
+<Start-Help>
+go - Bruges til at bevæge dig mellem rummene FX: go west
+guit - Stopper programmet
+help - Åbner denne menu
+buy - Bruges til at købe ting i bestemte rum FX: buy coffee
+pickup - Bruges til at samle ting på i bestemte rum FX: pickup phone
+inventory - Få en liste over alle de ting du har på dig
+investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte rum.
+<End-Help>
+
+<Start-Classroom>
+
+<End-Classroom>
+
+
+<Start-Fitness>
+
+<End-Fitness>
+
+
+<Start-Nedenunder>
+
+<End-Nedenunder>
+
+
+<Start-Bikeshop>
+
+<End-Bikeshop>
+
+
+<Start-GydeHutten>
+
+<End-GydeHutten>
+
+
+<Start-Ending>
+
+<End-Ending>
