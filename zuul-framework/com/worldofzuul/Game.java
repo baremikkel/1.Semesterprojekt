@@ -82,9 +82,20 @@ public class Game {
 
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
     //En booelean der tjekker om rummet man er i kan bruge kommandoen "Pickup"
-    boolean ItemsInRoom(String room) {
+    boolean PickupableRoom(String room) {
         boolean checker = false;
-        String[] rooms = {"Fitness", "Classroom", "Bikeshop", "Cafeteria", "Nedenunder"};
+        String[] rooms = {"Fitness", "Classroom"};
+        for (String s : rooms) {
+            if (room == s) {
+                checker = true;
+                break;
+            }
+        }
+        return checker;
+    }
+    boolean BuyableRoom(String room) {
+        boolean checker = false;
+        String[] rooms = {"Bikeshop", "Cafeteria", "Nedenunder"};
         for (String s : rooms) {
             if (room == s) {
                 checker = true;
@@ -109,11 +120,11 @@ public class Game {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.BUY && ItemsInRoom(currentRoom.getLocation())) {
+        } else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
             inventory.addItem(command.getSecondWord());
             System.out.println("You bought a " + command.getSecondWord());
         }
-        else if (commandWord == CommandWord.PICK_UP && ItemsInRoom(currentRoom.getLocation())) {
+        else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
             if(items.itemList(command.getSecondWord(), currentRoom.getLocation()))
@@ -128,7 +139,7 @@ public class Game {
         else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();
         } else if (commandWord == CommandWord.INVESTIGATE) {
-            if (ItemsInRoom(currentRoom.getLocation()))
+            if (PickupableRoom(currentRoom.getLocation()))
                 items.checkItemsPickup(currentRoom);
             else
                 items.checkItemsBuy(currentRoom);
