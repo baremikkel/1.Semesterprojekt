@@ -18,13 +18,13 @@ public class Game {
 
     }
 
-
+/*
     //main der starter spillet
     public static void main(String[] args) {
         Game game = new Game();
         game.play();
     }
-
+*/
     //Laver alle rummene og deres udgange
     private void createRooms() {
         Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
