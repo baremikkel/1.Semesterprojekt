@@ -74,7 +74,7 @@ public class Game {
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the world of SDU!");
-        System.out.println("World of SDU is a new, incredible adventure game. about bikesafety");
+        System.out.println("World of SDU is a new, incredible adventure game about bikesafety");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());

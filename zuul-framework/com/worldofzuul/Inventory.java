@@ -20,14 +20,14 @@ public class Inventory {
         inventory.remove(item);
     }
 
+
+
+
     void listInventory() {
-        if (inventory.isEmpty()) {
-            System.out.println("Your inventory is empty, explore the university to find items.");
-        } else {
-            System.out.println("In your inventory, you have:");
-            for (String s : inventory) {
-                System.out.println(s);
-            }
+        System.out.println("In your inventory, you have:");
+        for (String s : inventory) {
+            System.out.println(s);
         }
+
     }
 }
