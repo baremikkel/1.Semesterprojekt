@@ -1,12 +1,11 @@
 package com.worldofzuul;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Story {
 
-    void readFromStory(String start, String end) {
+    String readFromStory(String room) {
         StringBuilder text = new StringBuilder();
         try {
             File file = new File("Story.txt");
@@ -21,9 +20,9 @@ public class Story {
             e.printStackTrace();
         }
 
-        int startAscii85 = text.indexOf(start);
-        int endAscii85 = text.indexOf(end);
-        String textSubstring = text.substring(startAscii85+start.length(), endAscii85);
-        System.out.println(textSubstring);
+        int start = text.indexOf("<Start-" + room + ">");
+        int end = text.indexOf("<End-" + room + ">");
+        String textSubstring = text.substring(start + room.length() + 8, end);
+        return textSubstring;
     }
 }

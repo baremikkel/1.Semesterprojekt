@@ -10,6 +10,7 @@ public class Room
     private String description;
     public String location;
     private HashMap<String, Room> exits;
+    Story story = new Story();
 
     //Constructor der implementerer description og exits
     public Room(String description, String location) {
@@ -31,9 +32,9 @@ public class Room
     }
 
     //Udskriver hvor du er, og hvor du kan gå hen
-    public String getLongDescription()
+    public String getStory()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return story.readFromStory(location)+description;
     }
 
     //Udskriver hvilke veje man kan tage i det specifikke rum.

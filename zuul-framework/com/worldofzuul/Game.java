@@ -1,7 +1,5 @@
 package com.worldofzuul;
 
-import java.util.*;
-
 public class Game {
     //Attributer
     private Parser parser;
@@ -17,9 +15,7 @@ public class Game {
         inventory = new Inventory();
         items = new Items();
         story = new Story();
-
     }
-
 
     //main der starter spillet
     public static void main(String[] args) {
@@ -74,10 +70,10 @@ public class Game {
 
     //Velkommenstekst
     private void printWelcome() {
-        story.readFromStory("<Start-Welcome>","<End-Welcome>");
+        getText("Welcome");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.getStory());
     }
 
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
@@ -93,6 +89,7 @@ public class Game {
         }
         return checker;
     }
+
     boolean BuyableRoom(String room) {
         boolean checker = false;
         String[] rooms = {"Bikeshop", "Cafeteria", "Nedenunder"};
@@ -103,6 +100,10 @@ public class Game {
             }
         }
         return checker;
+    }
+
+    void getText(String room) {
+        System.out.println(story.readFromStory(room));
     }
 
     //en boolean der udfører kommandoen så længe programmet kører
@@ -123,37 +124,32 @@ public class Game {
         } else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
             inventory.addItem(command.getSecondWord());
             System.out.println("You bought a " + command.getSecondWord());
-        }
-        else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
+        } else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
-            if(items.itemList(command.getSecondWord(), currentRoom.getLocation()))
-            {
+            if (items.itemList(command.getSecondWord(), currentRoom.getLocation())) {
                 inventory.addItem(command.getSecondWord());
                 items.removeItem(currentRoom.getLocation(), command.getSecondWord());
                 System.out.println("You picked up " + command.getSecondWord());
-            }
-            else
+            } else
                 System.out.println("The thing you are trying to pickup doesn't exist.");
-        }
-        else if (commandWord == CommandWord.INVENTORY) {
+        } else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();
         } else if (commandWord == CommandWord.INVESTIGATE) {
             if (PickupableRoom(currentRoom.getLocation()))
                 items.checkItemsPickup(currentRoom);
             else
                 items.checkItemsBuy(currentRoom);
-        }
-         else {
+        } else {
             System.out.println("You can´t do this here!");
         }
-
         return wantToQuit;
     }
 
     //Hjælpe tekst
     private void printHelp() {
-        story.readFromStory("<Start-Help>","<End-Help>");
+        getText("Help");
+
     }
 
     //går til det næste rum, så længe er en retning at følge... hvis der ikke noget rum skriver det "There is no door!"
@@ -163,16 +159,14 @@ public class Game {
             System.out.println("Go where?");
             return;
         }
-
         String direction = command.getSecondWord();
-
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("You can´t go there");
         } else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            System.out.println(currentRoom.getStory());
         }
     }
 

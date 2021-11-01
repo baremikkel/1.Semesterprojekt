@@ -23,6 +23,8 @@ Du hører en der råber dit navn, du kigger op og ser at det er din kammerat Kar
 * Karen: Du må godt nok have dårlig selvtillid, hvis du er bange for at folk syntes du ikke ser sej ud med cykelhjelm på.
          Jeg bruger min fordi den nedsætter risikoen for hovedskader, da man jo aldrig ved hvornår man kommer ud for en ulykke.
 * Dig: Hvorfor skal du altid være så klog?... Jeg skal lige i kantinen og købe min morgenkaffe, men vi ses til forlæsningen!
+
+Du er her:
 <End-outsideSDU>
 
 <Start-Cafeteria>
@@ -45,28 +47,33 @@ investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte r
 <End-Help>
 
 <Start-Classroom>
-
+Du er her:
 <End-Classroom>
 
 
 <Start-Fitness>
-
+Du er her:
 <End-Fitness>
 
 
 <Start-Nedenunder>
-
+Du er her:
 <End-Nedenunder>
 
 
 <Start-Bikeshop>
-
+Du er her:
 <End-Bikeshop>
 
 
-<Start-GydeHutten>
+<Start-GydehuttenN>
+Du er her:
+<End-GydehuttenN>
 
-<End-GydeHutten>
+
+<Start-GydehuttenS>
+Du er her:
+<End-GydehuttenS>
 
 
 <Start-Ending>
