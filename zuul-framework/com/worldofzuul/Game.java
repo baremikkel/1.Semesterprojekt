@@ -75,7 +75,6 @@ public class Game {
         System.out.println();
         System.out.println(currentRoom.getStory());
     }
-
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
     //En booelean der tjekker om rummet man er i kan bruge kommandoen "Pickup"
     boolean PickupableRoom(String room) {

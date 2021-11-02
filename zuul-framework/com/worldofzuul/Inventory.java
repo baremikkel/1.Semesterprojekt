@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Inventory {
     ArrayList<String> inventory = new ArrayList<String>();
-    Inventory()
-    {
+
+    Inventory() {
         inventory.add("Student ID");
         inventory.add("Books");
         inventory.add("Cellphone");
