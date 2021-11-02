@@ -8,6 +8,8 @@ public class Game {
     private Room currentRoom;
     Inventory inventory;
     Items items;
+    Quest quest;
+    Room[] roomArray;
 
     //Constructor
     public Game() {
@@ -15,7 +17,7 @@ public class Game {
         parser = new Parser();
         inventory = new Inventory();
         items = new Items();
-
+        this.quest = new Quest(this);
     }
 
 
@@ -26,7 +28,7 @@ public class Game {
     }
 
     //Laver alle rummene og deres udgange
-    private void createRooms() {
+    public void createRooms() {
         Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
 
         outsideSDU = new Room("outside the main entrance of SDU", "outsideSDU");
@@ -37,12 +39,15 @@ public class Game {
         Classroom = new Room("in your classroom", "Classroom");
         Nedenunder = new Room("in the SDU bar", "Nedenunder");
         Bikeshop = new Room("in the bikeshop", "Bikeshop");
+        roomArray = new Room[]{outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop};
+
 
         outsideSDU.setExit("south", GydehuttenN);
 
         GydehuttenN.setExit("north", outsideSDU);
         GydehuttenN.setExit("west", Cafeteria);
-        GydehuttenN.setExit("east", Classroom);
+        Cafeteria.setExit("east", GydehuttenN);
+       /* GydehuttenN.setExit("east", Classroom);
         GydehuttenN.setExit("south", GydehuttenS);
 
         GydehuttenS.setExit("north", GydehuttenN);
@@ -50,12 +55,12 @@ public class Game {
         GydehuttenS.setExit("east", Fitness);
         GydehuttenS.setExit("south", Bikeshop);
 
-        Cafeteria.setExit("east", GydehuttenN);
+
         Classroom.setExit("west", GydehuttenN);
         Nedenunder.setExit("east", GydehuttenS);
         Fitness.setExit("west", GydehuttenS);
 
-        Bikeshop.setExit("north", GydehuttenS);
+        Bikeshop.setExit("north", GydehuttenS);*/
         currentRoom = outsideSDU;
     }
 
@@ -72,12 +77,7 @@ public class Game {
 
     //Velkommenstekst
     private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the world of SDU!");
-        System.out.println("World of SDU is a new, incredible adventure game about bikesafety");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+
     }
 
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
@@ -93,6 +93,7 @@ public class Game {
         }
         return checker;
     }
+
     boolean BuyableRoom(String room) {
         boolean checker = false;
         String[] rooms = {"Bikeshop", "Cafeteria", "Nedenunder"};
@@ -122,32 +123,30 @@ public class Game {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
             inventory.addItem(command.getSecondWord());
+
             System.out.println("You bought a " + command.getSecondWord());
-        }
-        else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
+        } else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
-            if(items.itemList(command.getSecondWord(), currentRoom.getLocation()))
-            {
+            if (items.itemList(command.getSecondWord(), currentRoom.getLocation())) {
                 inventory.addItem(command.getSecondWord());
+                quest.addItem(command.getSecondWord());
                 items.removeItem(currentRoom.getLocation(), command.getSecondWord());
                 System.out.println("You picked up " + command.getSecondWord());
-            }
-            else
+            } else
                 System.out.println("The thing you are trying to pickup doesn't exist.");
-        }
-        else if (commandWord == CommandWord.INVENTORY) {
+        } else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();
         } else if (commandWord == CommandWord.INVESTIGATE) {
             if (PickupableRoom(currentRoom.getLocation()))
                 items.checkItemsPickup(currentRoom);
             else
                 items.checkItemsBuy(currentRoom);
-        }
-         else {
+        } else {
             System.out.println("You can´t do this here!");
         }
-
+        quest.addToPlayerInventory(command.getSecondWord());
+        quest.questContainer();
         return wantToQuit;
     }
 

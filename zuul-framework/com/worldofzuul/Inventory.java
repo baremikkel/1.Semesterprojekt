@@ -2,32 +2,29 @@ package com.worldofzuul;
 
 import java.util.ArrayList;
 
-public class Inventory {
+public class Inventory implements iInventory {
     ArrayList<String> inventory = new ArrayList<String>();
-    Inventory()
-    {
+
+    Inventory() {
         inventory.add("Student ID");
         inventory.add("Books");
         inventory.add("Cellphone");
         inventory.add("Laptop");
     }
 
-    void addItem(String item) {
-        inventory.add(item);
-    }
-
-    void removeItem(String item) {
-        inventory.remove(item);
-    }
-
-
-
-
-    void listInventory() {
+    public void listInventory() {
         System.out.println("In your inventory, you have:");
         for (String s : inventory) {
             System.out.println(s);
         }
 
+    }
+
+    public void addItem(String item) {
+        inventory.add(item);
+    }
+
+    public void removeItem(String item) {
+        inventory.remove(item);
     }
 }
