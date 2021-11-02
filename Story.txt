@@ -28,7 +28,7 @@ Du er her:
 <End-outsideSDU>
 
 <Start-Cafeteria>
-Du står og overvejer om du skal have en sandwich med til forlæsningen.
+Du kigger igen på klokken og ser at der nu kun er 5 minutter til at forlæsningen starter, du har travlt!
 ----------
 Skriv: "investigate"
 For at skabe et overblik over hvilke muligheder du har.
