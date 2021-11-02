@@ -117,15 +117,19 @@ public class Game {
         }
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        } else if (commandWord == CommandWord.GO) {
+        }
+        else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        } else if (commandWord == CommandWord.QUIT) {
+        }
+        else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
+        }
+        else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
             inventory.addItem(command.getSecondWord());
 
             System.out.println("You bought a " + command.getSecondWord());
-        } else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
+        }
+        else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
             if (items.itemList(command.getSecondWord(), currentRoom.getLocation())) {
@@ -135,14 +139,17 @@ public class Game {
                 System.out.println("You picked up " + command.getSecondWord());
             } else
                 System.out.println("The thing you are trying to pickup doesn't exist.");
-        } else if (commandWord == CommandWord.INVENTORY) {
+        }
+        else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();
-        } else if (commandWord == CommandWord.INVESTIGATE) {
+        }
+        else if (commandWord == CommandWord.INVESTIGATE) {
             if (PickupableRoom(currentRoom.getLocation()))
                 items.checkItemsPickup(currentRoom);
             else
                 items.checkItemsBuy(currentRoom);
-        } else {
+        }
+        else {
             System.out.println("You can´t do this here!");
         }
         quest.addToPlayerInventory(command.getSecondWord());
