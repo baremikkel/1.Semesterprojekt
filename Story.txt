@@ -38,7 +38,7 @@ Eksempel: buy coffee
 
 <Start-Help>
 go - Bruges til at bevæge dig mellem rummene FX: go west
-guit - Stopper programmet
+quit - Stopper programmet
 help - Åbner denne menu
 buy - Bruges til at købe ting i bestemte rum FX: buy coffee
 pickup - Bruges til at samle ting på i bestemte rum FX: pickup phone
@@ -48,6 +48,21 @@ investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte r
 
 <Start-Classroom>
 Du er her:
+
+Vikingerne kommer – på med hjelmen!
+
+* Foredragsholder: Hjelmen har beskyttet vores forfædre i årtusinder og det har alle dage været en god idé at tage en hjelm på,
+                   når man skulle ud i situationer, hvor det var vigtigt at beskytte sit hoved. I dag bruger kun 31% af
+                   unge mellem 16-25 år hjelm når de cykler.
+                   Husk hjelmen, næste gang du svinger dig op på jernhesten!
+
+* Foredragsholder: Tak fordi i gad at lytte med i dag.
+
+Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
+næste modul er aflyst.
+
+Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
+spørger dig om du vil med ned og træne i fitness.
 <End-Classroom>
 
 
