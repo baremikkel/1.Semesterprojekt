@@ -147,7 +147,7 @@ public class Game {
             else
                 items.checkItemsBuy(currentRoom);
         }
-        else if (commandWord == CommandWord.START && command.hasSecondWord())
+        else if (commandWord == CommandWord.START  && command.hasSecondWord())
         {
             if(Objects.equals(command.getSecondWord(), "lecture"))
             {
@@ -156,8 +156,16 @@ public class Game {
                 quest.addToPlayerInventory("info");
             } else if(Objects.equals(command.getSecondWord(), "workout")){
                 quest.addToPlayerInventory("fitness");
+            }
         }
+        else if (commandWord == CommandWord.STOP && command.hasSecondWord())
+        {
+            if(Objects.equals(command.getSecondWord(), "drinking")) {
+                quest.addToPlayerInventory("drinking");
+
+            }
         }
+
         else {
             System.out.println("You can´t do this here!");
         }

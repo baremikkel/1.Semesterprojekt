@@ -49,12 +49,14 @@ public class Quest implements iInventory {
         }
         else if (playerInventory.contains("fitness") && !fitnessQuestComplete) {
             System.out.println("OBJECTIVE COMPLETE: You've finished your workout, meet up with your friends in the bar.");
-            GydehuttenN.setExit("east", game.roomArray[5]);
+            GydehuttenS.setExit("west", Nedenunder);
+            Nedenunder.setExit("east", GydehuttenS);
             fitnessQuestComplete = true;
         }
-        else if (playerInventory.contains("beer") && !beerQuestComplete) {
+        else if (playerInventory.contains("drinking") && !beerQuestComplete) {
             System.out.println("OBJECTIVE COMPLETE: you've drinked beers with your friends.");
-            GydehuttenN.setExit("east", game.roomArray[5]);
+            GydehuttenS.setExit("south", Bikeshop);
+            Bikeshop.setExit("north", GydehuttenS);
             beerQuestComplete = true;
         }
         else if (playerInventory.contains("helmet") && !helmetQuestComplete) {
@@ -70,7 +72,7 @@ public class Quest implements iInventory {
 
     boolean checkQuestItem(String item) {
         boolean checker = false;
-        String[] questList = {"coffee", "info", "fitness", "beer", "helmet"};
+        String[] questList = {"coffee", "info", "fitness", "drinking", "helmet"};
         for (String s : questList) {
             if (Objects.equals(item, s)) {
                 checker = true;

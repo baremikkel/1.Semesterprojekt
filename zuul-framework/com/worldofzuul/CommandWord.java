@@ -11,7 +11,8 @@ public enum CommandWord
     PICK_UP("pickup"),
     INVENTORY("inventory"),
     INVESTIGATE("investigate"),
-    START("start");
+    START("start"),
+    STOP("stop");
 
     private String commandString;
 
