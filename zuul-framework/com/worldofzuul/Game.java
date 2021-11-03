@@ -154,7 +154,9 @@ public class Game {
                 inventory.removeItem("phone");
                 items.PickupItems.get(currentRoom.getLocation()).add("phone");
                 quest.addToPlayerInventory("info");
-            }
+            } else if(Objects.equals(command.getSecondWord(), "workout")){
+                quest.addToPlayerInventory("fitness");
+        }
         }
         else {
             System.out.println("You can´t do this here!");
