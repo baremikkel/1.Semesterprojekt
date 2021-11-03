@@ -10,7 +10,8 @@ public enum CommandWord
     BUY("buy"),
     PICK_UP("pickup"),
     INVENTORY("inventory"),
-    INVESTIGATE("investigate");
+    INVESTIGATE("investigate"),
+    START("start");
 
     private String commandString;
 

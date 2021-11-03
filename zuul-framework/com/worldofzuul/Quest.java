@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Quest implements iInventory {
     ArrayList<String> quest = new ArrayList<>();
-    Inventory inventory = new Inventory();
+    Inventory inventory;
     ArrayList<String> playerInventory = new ArrayList<>();
     Game game;
     Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
@@ -15,8 +15,9 @@ public class Quest implements iInventory {
     boolean beerQuestComplete = false;
     boolean helmetQuestComplete = false;
 
-    Quest(Game game) {
+    Quest(Game game, Inventory inventory) {
         this.game = game;
+        this.inventory = inventory;
         outsideSDU = game.roomArray[0];
         GydehuttenN = game.roomArray[1];
         GydehuttenS = game.roomArray[2];
@@ -30,13 +31,21 @@ public class Quest implements iInventory {
     void questContainer() {
         if (playerInventory.contains("coffee") && !coffeeQuestComplete) {
             System.out.println("OBJECTIVE COMPLETE: You've bought a coffee, now you can go to the lecture.");
-            GydehuttenN.setExit("east", game.roomArray[5]);
+            GydehuttenN.setExit("east", Classroom);
+            Classroom.setExit("west", GydehuttenN);
             coffeeQuestComplete = true;
         }
         else if (playerInventory.contains("info") && !infoQuestComplete) {
             System.out.println("OBJECTIVE COMPLETE: You've been to the lecture, pick up your phone to continue.");
-            GydehuttenN.setExit("east", game.roomArray[5]);
-            infoQuestComplete = true;
+            if(inventory.inventory.contains("phone"))
+            {
+                GydehuttenN.setExit("south", GydehuttenS);
+                GydehuttenS.setExit("north", GydehuttenN);
+                GydehuttenS.setExit("east",Fitness);
+                Fitness.setExit("west", GydehuttenS);
+                infoQuestComplete = true;
+            }
+
         }
         else if (playerInventory.contains("fitness") && !fitnessQuestComplete) {
             System.out.println("OBJECTIVE COMPLETE: You've finished your workout, meet up with your friends in the bar.");

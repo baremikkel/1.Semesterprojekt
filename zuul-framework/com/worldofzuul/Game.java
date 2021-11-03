@@ -17,7 +17,7 @@ public class Game {
         parser = new Parser();
         inventory = new Inventory();
         items = new Items();
-        this.quest = new Quest(this);
+        this.quest = new Quest(this,inventory);
     }
 
 
@@ -47,20 +47,6 @@ public class Game {
         GydehuttenN.setExit("north", outsideSDU);
         GydehuttenN.setExit("west", Cafeteria);
         Cafeteria.setExit("east", GydehuttenN);
-       /* GydehuttenN.setExit("east", Classroom);
-        GydehuttenN.setExit("south", GydehuttenS);
-
-        GydehuttenS.setExit("north", GydehuttenN);
-        GydehuttenS.setExit("west", Nedenunder);
-        GydehuttenS.setExit("east", Fitness);
-        GydehuttenS.setExit("south", Bikeshop);
-
-
-        Classroom.setExit("west", GydehuttenN);
-        Nedenunder.setExit("east", GydehuttenS);
-        Fitness.setExit("west", GydehuttenS);
-
-        Bikeshop.setExit("north", GydehuttenS);*/
         currentRoom = outsideSDU;
     }
 
@@ -77,7 +63,7 @@ public class Game {
 
     //Velkommenstekst
     private void printWelcome() {
-
+        System.out.println("Go south");
     }
 
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
@@ -126,8 +112,11 @@ public class Game {
         }
         else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
             inventory.addItem(command.getSecondWord());
-
             System.out.println("You bought a " + command.getSecondWord());
+            if(Objects.equals(command.getSecondWord(),"coffee"));
+            {
+                quest.addToPlayerInventory(command.getSecondWord());
+            }
         }
         else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
@@ -149,11 +138,21 @@ public class Game {
             else
                 items.checkItemsBuy(currentRoom);
         }
+        else if (commandWord == CommandWord.START && command.hasSecondWord())
+        {
+            if(Objects.equals(command.getSecondWord(), "lecture"))
+            {
+                inventory.removeItem("phone");
+                items.PickupItems.get(currentRoom.getLocation()).add("phone");
+                quest.addToPlayerInventory("info");
+            }
+        }
         else {
             System.out.println("You can´t do this here!");
         }
-        quest.addToPlayerInventory(command.getSecondWord());
+
         quest.questContainer();
+
         return wantToQuit;
     }
 
