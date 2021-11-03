@@ -8,7 +8,7 @@ public class Inventory implements iInventory {
     Inventory() {
         inventory.add("Student ID");
         inventory.add("Books");
-        inventory.add("Cellphone");
+        inventory.add("phone");
         inventory.add("Laptop");
     }
 
