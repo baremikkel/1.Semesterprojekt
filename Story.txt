@@ -49,8 +49,6 @@ investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte r
 <End-Help>
 
 <Start-Classroom>
-Du er her:
-
 Du når ind i klasselokalet til tiden, du finder dig en plads bagerst i lokalet, da du ved at denne forelæsning er et foredrag
 fra en ekstern person som til dagligt er en del af Rådet for Sikker Trafik.
 
@@ -72,10 +70,13 @@ næste modul er aflyst.
 
 Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
 spørger dig om du vil med ned og træne i fitness.
+
+Du er her:
 <End-Classroom>
 
 
 <Start-Fitness>
+
 Du er her:
 <End-Fitness>
 
