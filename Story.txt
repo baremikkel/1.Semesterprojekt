@@ -29,6 +29,12 @@ Du hører en der råber dit navn, du kigger op og ser at det er din studiekammer
 Du er her:
 <End-outsideSDU>
 
+<Start-GydehuttenN>
+Se hvilke directions muligheder du har og gå derhen.
+
+Du er her:
+<End-GydehuttenN>
+
 <Start-Cafeteria>
 Du kigger igen på klokken og ser at der nu kun er 5 minutter til at forlæsningen starter, du har travlt!
 ----------
@@ -83,6 +89,17 @@ Du er her:
 
 
 <Start-Nedenunder>
+Du står nu i fredagsbaren. Du kigger dig rundt og finder dine venner der sidder i en sofagruppe.
+Du er rigtig tørsigt efter en iskold øl.
+----------
+Skriv: "investigate"
+For at skabe et overblik over hvilke muligheder du har.
+Skriv: "buy" + hvad du ville købe
+Eksempel: buy odense-classic
+-----------
+
+* Tristan:
+
 Du er her:
 <End-Nedenunder>
 
