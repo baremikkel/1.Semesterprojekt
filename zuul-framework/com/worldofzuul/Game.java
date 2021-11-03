@@ -1,7 +1,5 @@
 package com.worldofzuul;
 
-import java.util.*;
-
 public class Game {
     //Attributer
     private Parser parser;
@@ -10,6 +8,7 @@ public class Game {
     Items items;
     Quest quest;
     Room[] roomArray;
+    Story story;
 
     //Constructor
     public Game() {
@@ -18,8 +17,8 @@ public class Game {
         inventory = new Inventory();
         items = new Items();
         this.quest = new Quest(this);
+        story = new Story();
     }
-
 
     //main der starter spillet
     public static void main(String[] args) {
@@ -47,20 +46,7 @@ public class Game {
         GydehuttenN.setExit("north", outsideSDU);
         GydehuttenN.setExit("west", Cafeteria);
         Cafeteria.setExit("east", GydehuttenN);
-       /* GydehuttenN.setExit("east", Classroom);
-        GydehuttenN.setExit("south", GydehuttenS);
-
-        GydehuttenS.setExit("north", GydehuttenN);
-        GydehuttenS.setExit("west", Nedenunder);
-        GydehuttenS.setExit("east", Fitness);
-        GydehuttenS.setExit("south", Bikeshop);
-
-
-        Classroom.setExit("west", GydehuttenN);
-        Nedenunder.setExit("east", GydehuttenS);
-        Fitness.setExit("west", GydehuttenS);
-
-        Bikeshop.setExit("north", GydehuttenS);*/
+       
         currentRoom = outsideSDU;
     }
 
@@ -78,8 +64,11 @@ public class Game {
     //Velkommenstekst
     private void printWelcome() {
 
+        getText("Welcome");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println();
+        System.out.println(currentRoom.getStory());
     }
-
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
     //En booelean der tjekker om rummet man er i kan bruge kommandoen "Pickup"
     boolean PickupableRoom(String room) {
@@ -104,6 +93,10 @@ public class Game {
             }
         }
         return checker;
+    }
+
+    void getText(String room) {
+        System.out.println(story.readFromStory(room));
     }
 
     //en boolean der udfører kommandoen så længe programmet kører
@@ -152,11 +145,8 @@ public class Game {
 
     //Hjælpe tekst
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your current command words are:");
-        parser.showCommands();
+        getText("Help");
+
     }
 
     //går til det næste rum, så længe er en retning at følge... hvis der ikke noget rum skriver det "There is no door!"
@@ -166,16 +156,14 @@ public class Game {
             System.out.println("Go where?");
             return;
         }
-
         String direction = command.getSecondWord();
-
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("You can´t go there");
         } else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            System.out.println(currentRoom.getStory());
         }
     }
 

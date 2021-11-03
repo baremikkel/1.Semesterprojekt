@@ -1,0 +1,106 @@
+<Start-Welcome>
+Velkommen!
+Dette spil vil introducere dig til hvorfor mange af dine medstuderende bruger cykelhjelm
+samt vigtigheden af at bruge cykelhjelm.
+Du spiller som "Samuel" der er studerende på SDU.
+Din opgave er at komme igennem en almindelig dag på universitet.
+-Held og lykke
+<End-Welcome>
+
+<Start-outsideSDU>
+Du står ude foran SDU, og har lige låst din cykel!
+Det er vinter og det er møg koldt.
+Du kigger på klokken og ser at der er 15 minutter til forlæsningen starter.
+----------
+* Karen: HEY SAMUEL!
+Du hører en der råber dit navn, du kigger op og ser at det er din studiekammerat Karen.
+* Dig: God morgen Karen, hvordan var din cykeltur?
+* Karen: Den var fin, udover ham tossen der valgte at køre ud lige foran mig,
+         så jeg blev nødt til at bremse så hårdt op, hvilket resulterede i, at ham bagved kørte ind i mig.
+         Fordi det er så glat, væltede vi begge to men heldig hvis havde vi cykelhjelm på, så der skete ikke så meget.
+* Dig: Selvom jeg ikke selv kan lide at have cykelhjelm på, er jeg glad for at du havde din på.
+* Karen: Det er jeg godt nok også. Hvorfor kan du egentlig ikke det?
+* Dig: Jeg føler ikke jeg ser super sej ud med cykelhjelm på.
+* Karen: Du må godt nok have dårlig selvtillid, hvis du er bange for at folk syntes du ikke ser sej ud med cykelhjelm på.
+         Jeg bruger min fordi den nedsætter risikoen for hovedskader, da man jo aldrig ved hvornår man kommer ud for en ulykke.
+         En ting er, at jeg synes jeg er en god cyklist, men jeg kan jo ikke tænke for alle andre i trafikken..
+* Dig: Hvorfor skal du altid være så klog?... Jeg skal lige i kantinen og købe min morgenkaffe, men vi ses til forlæsningen!
+
+Du er her:
+<End-outsideSDU>
+
+<Start-Cafeteria>
+Du kigger igen på klokken og ser at der nu kun er 5 minutter til at forlæsningen starter, du har travlt!
+----------
+Skriv: "investigate"
+For at skabe et overblik over hvilke muligheder du har.
+Skriv: "buy" + hvad du ville købe
+Eksempel: buy coffee
+<End-Cafeteria>
+
+<Start-Help>
+go - Bruges til at bevæge dig mellem rummene FX: go west
+quit - Stopper programmet
+help - Åbner denne menu
+buy - Bruges til at købe ting i bestemte rum FX: buy coffee
+pickup - Bruges til at samle ting på i bestemte rum FX: pickup phone
+inventory - Få en liste over alle de ting du har på dig
+investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte rum.
+<End-Help>
+
+<Start-Classroom>
+Du når ind i klasselokalet til tiden, du finder dig en plads bagerst i lokalet, da du ved at denne forelæsning er et foredrag
+fra en ekstern person som til dagligt er en del af Rådet for Sikker Trafik.
+
+
+* Foredragsholder: Vikingerne kommer – på med hjelmen!
+                   Hjelmen har beskyttet vores forfædre i årtusinder og det har alle dage været en god idé at tage en hjelm på,
+                   når man skulle ud i situationer, hvor det var vigtigt at beskytte sit hoved. I dag bruger kun 31% af
+                   unge mellem 16-25 år hjelm når de cykler.
+
+---------------------------
+Du zoner ud resten af oplægget og tænker på den historie Karen fortalte dig tidligere samt hvor meget du glæder dig til at
+komme i fredagsbaren senere.
+
+* Foredragsholder: Husk hjelmen, næste gang du svinger dig op på jernhesten!
+                   Tak fordi i gad at lytte med i dag.
+
+Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
+næste modul er aflyst.
+
+Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
+spørger dig om du vil med ned og træne i fitness.
+
+Du er her:
+<End-Classroom>
+
+
+<Start-Fitness>
+
+Du er her:
+<End-Fitness>
+
+
+<Start-Nedenunder>
+Du er her:
+<End-Nedenunder>
+
+
+<Start-Bikeshop>
+Du er her:
+<End-Bikeshop>
+
+
+<Start-GydehuttenN>
+Du er her:
+<End-GydehuttenN>
+
+
+<Start-GydehuttenS>
+Du er her:
+<End-GydehuttenS>
+
+
+<Start-Ending>
+
+<End-Ending>
