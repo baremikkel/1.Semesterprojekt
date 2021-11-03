@@ -151,6 +151,7 @@ public class Game {
         {
             if(Objects.equals(command.getSecondWord(), "lecture"))
             {
+                getText(currentRoom.location+"2");
                 inventory.removeItem("phone");
                 items.PickupItems.get(currentRoom.getLocation()).add("phone");
                 quest.addToPlayerInventory("info");

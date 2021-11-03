@@ -59,7 +59,9 @@ investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte r
 <Start-Classroom>
 Du når ind i klasselokalet til tiden, du finder dig en plads bagerst i lokalet, da du ved at denne forelæsning er et foredrag
 fra en ekstern person som til dagligt er en del af Rådet for Sikker Trafik.
+<End-Classroom>
 
+<Start-Classroom2>
 * Foredragsholder: Vikingerne kommer – på med hjelmen!
                    Hjelmen har beskyttet vores forfædre i årtusinder og det har alle dage været en god idé at tage en hjelm på,
                    når man skulle ud i situationer, hvor det var vigtigt at beskytte sit hoved. I dag bruger kun 31% af
@@ -71,7 +73,8 @@ komme i fredagsbaren senere.
 
 * Foredragsholder: Husk hjelmen, næste gang du svinger dig op på jernhesten!
                    Tak fordi i gad at lytte med i dag.
-
+<End-Classroom2>
+<Start-Classroom3>
 Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
 næste modul er aflyst.
 
@@ -79,7 +82,7 @@ Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fre
 spørger dig om du vil med ned og træne i fitness.
 
 Du er her:
-<End-Classroom>
+<End-Classroom3>
 
 
 <Start-Fitness>

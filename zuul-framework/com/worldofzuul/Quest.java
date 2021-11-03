@@ -8,6 +8,7 @@ public class Quest implements iInventory {
     Inventory inventory;
     ArrayList<String> playerInventory = new ArrayList<>();
     Game game;
+    Story story = new Story();
     Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
     boolean coffeeQuestComplete = false;
     boolean infoQuestComplete = false;
@@ -39,6 +40,7 @@ public class Quest implements iInventory {
             System.out.println("OBJECTIVE COMPLETE: You've been to the lecture, pick up your phone to continue.");
             if(inventory.inventory.contains("phone"))
             {
+                System.out.println(story.readFromStory("Classroom3"));
                 GydehuttenN.setExit("south", GydehuttenS);
                 GydehuttenS.setExit("north", GydehuttenN);
                 GydehuttenS.setExit("east",Fitness);
