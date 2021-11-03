@@ -36,6 +36,8 @@ Skriv: "investigate"
 For at skabe et overblik over hvilke muligheder du har.
 Skriv: "buy" + hvad du ville købe
 Eksempel: buy coffee
+
+Du er her:
 <End-Cafeteria>
 
 <Start-Help>
@@ -51,7 +53,6 @@ investigate - Bruges til at vise hvilke ting man kan købe/samle op i bestemte r
 <Start-Classroom>
 Du når ind i klasselokalet til tiden, du finder dig en plads bagerst i lokalet, da du ved at denne forelæsning er et foredrag
 fra en ekstern person som til dagligt er en del af Rådet for Sikker Trafik.
-
 
 * Foredragsholder: Vikingerne kommer – på med hjelmen!
                    Hjelmen har beskyttet vores forfædre i årtusinder og det har alle dage været en god idé at tage en hjelm på,

@@ -34,7 +34,7 @@ public class Room
     //Udskriver hvor du er, og hvor du kan gå hen
     public String getStory()
     {
-        return story.readFromStory(location)+description;
+        return story.readFromStory(location)+description+'\n'+getExitString();
     }
 
     //Udskriver hvilke veje man kan tage i det specifikke rum.
