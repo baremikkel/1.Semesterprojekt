@@ -109,6 +109,21 @@ Du er her:
 
 <Start-Bikeshop>
 Du er her:
+I går ind i Bikeshopen og kigger rundt. I går over  til væggen med cykelhjelme for at se hvad shoppen har af udvalg.
+*Cykelsmeden: Kan jeg hjælpe med noget?
+I vender jer rundt og ser at cykelsmeden bevæger sig hen til jer.
+*Karen: Vi står lige og kigger på en bike-helmet til min ven her.
+*Cykelsmed: Ja, det er jo altid en god ide. I må sige til hvis jeg kan hjælpe.
+*Dig: Tak, det skal vi nok.
+Cykelsmeden går igen.
+*Karen: Hvad syntes du så, skal du have en bike-helmet eller hvad?
+*Karen: Under alle omstendighedder bliver jeg nød til a smutte nu, håber du træfer det rigtige valg. Vi ses.
+*Dig: Vi ses, kom godt hjem.
+---------
+Skrive: "investigate"
+For at skabe et overblik over hvilke muligheder du har.
+Skriv: "buy" + hvad du vil købe
+Eksempel: buy bike-helmet
 <End-Bikeshop>
 
 
