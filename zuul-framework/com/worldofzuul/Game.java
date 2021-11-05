@@ -120,17 +120,25 @@ public class Game {
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
-            inventory.addItem(command.getSecondWord());
-            System.out.println("You bought a " + command.getSecondWord());
-            if(Objects.equals(command.getSecondWord(),"coffee"));
+            if(items.itemList(command.getSecondWord(), currentRoom.getLocation(), this))
             {
-                quest.addToPlayerInventory(command.getSecondWord());
+                inventory.addItem(command.getSecondWord());
+                System.out.println("You bought a " + command.getSecondWord());
+                if(Objects.equals(command.getSecondWord(),"coffee"));
+                {
+                    quest.addToPlayerInventory(command.getSecondWord());
+                }
             }
+            else
+            {
+                System.out.println("You can't buy this here");
+            }
+
         }
         else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
-            if (items.itemList(command.getSecondWord(), currentRoom.getLocation())) {
+            if (items.itemList(command.getSecondWord(), currentRoom.getLocation(),this)) {
                 inventory.addItem(command.getSecondWord());
                 quest.addItem(command.getSecondWord());
                 items.removeItem(currentRoom.getLocation(), command.getSecondWord());
@@ -149,21 +157,21 @@ public class Game {
         }
         else if (commandWord == CommandWord.START  && command.hasSecondWord())
         {
-            if(Objects.equals(command.getSecondWord(), "lecture"))
-            {
-                getText(currentRoom.location+"2");
-                inventory.removeItem("phone");
-                items.PickupItems.get(currentRoom.getLocation()).add("phone");
-                quest.addToPlayerInventory("info");
-            } else if(Objects.equals(command.getSecondWord(), "workout")){
-                quest.addToPlayerInventory("fitness");
+            if(Objects.equals(currentRoom.getLocation(), "Classroom") || Objects.equals(currentRoom.getLocation(), "Fitness")) {
+                if (Objects.equals(command.getSecondWord(), "lecture")) {
+                    getText(currentRoom.location + "2");
+                    inventory.removeItem("phone");
+                    items.PickupItems.get(currentRoom.getLocation()).add("phone");
+                    quest.addToPlayerInventory("info");
+                } else if (Objects.equals(command.getSecondWord(), "workout")) {
+                    quest.addToPlayerInventory("fitness");
+                }
             }
         }
         else if (commandWord == CommandWord.STOP && command.hasSecondWord())
         {
             if(Objects.equals(command.getSecondWord(), "drinking")) {
                 quest.addToPlayerInventory("drinking");
-
             }
         }
 
