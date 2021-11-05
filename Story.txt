@@ -86,6 +86,13 @@ Du er her:
 
 
 <Start-Fitness>
+Du ankommer til SDU fitness, hvor dig og din studiekammerat gør jer klar til at få noget sved på panden.
+
+Under træningen ender i om at snakke omkring forelæsningen:
+
+* Studiekammerat
+
+
 
 Du er her:
 <End-Fitness>
