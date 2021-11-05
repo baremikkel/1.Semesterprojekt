@@ -95,9 +95,9 @@ Du er her:
 Du står nu i fredagsbaren. Du kigger dig rundt og finder dine venner der sidder i en sofagruppe.
 Du er rigtig tørsigt efter en iskold øl.
 ----------
-Skriv: "investigate"
-For at skabe et overblik over hvilke muligheder du har.
-Skriv: "buy" + hvad du ville købe
+Skriv: investigate
+For at skabe et overblik over hvad du kan købe i fredagsbaren.
+Skriv: buy + hvad du vil købe
 Eksempel: buy odense-classic
 -----------
 
