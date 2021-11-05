@@ -75,7 +75,7 @@ komme i fredagsbaren senere.
                    Tak fordi i gad at lytte med i dag.
 <End-Classroom2>
 <Start-Classroom3>
-Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
+Du tager din telefon op ad lommen op og ser at der er kommet en notifikation på ItsLearning om at
 næste modul er aflyst.
 
 Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
@@ -150,11 +150,14 @@ Du er her:
 
 
 <Start-GydehuttenN>
+Se hvilke directions muligheder du har og gå derhen.
 Du er her:
 <End-GydehuttenN>
 
 
 <Start-GydehuttenS>
+Se hvilke directions muligheder du har og gå derhen.
+
 Du er her:
 <End-GydehuttenS>
 
