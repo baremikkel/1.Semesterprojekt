@@ -30,7 +30,7 @@ public class Game {
 
     //Laver alle rummene og deres udgange
     public void createRooms() {
-        Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
+        Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop, Ending;
 
         outsideSDU = new Room("outside the main entrance of SDU", "outsideSDU");
         GydehuttenN = new Room("in the north end of the main hallway", "GydehuttenN");
@@ -40,12 +40,12 @@ public class Game {
         Classroom = new Room("in your classroom", "Classroom");
         Nedenunder = new Room("in the SDU bar", "Nedenunder");
         Bikeshop = new Room("in the bikeshop", "Bikeshop");
-        roomArray = new Room[]{outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop};
+        Ending = new Room("the ending", "outsideSDU after school");
+        roomArray = new Room[]{outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop, Ending};
 
 
         outsideSDU.setExit("south", GydehuttenN);
 
-        GydehuttenN.setExit("north", outsideSDU);
         GydehuttenN.setExit("west", Cafeteria);
         Cafeteria.setExit("east", GydehuttenN);
        
@@ -133,7 +133,6 @@ public class Game {
             {
                 System.out.println("You can't buy this here");
             }
-
         }
         else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
@@ -174,7 +173,6 @@ public class Game {
                 quest.addToPlayerInventory("drinking");
             }
         }
-
         else {
             System.out.println("You can´t do this here!");
         }
@@ -204,7 +202,15 @@ public class Game {
             System.out.println("You can´t go there");
         } else {
             currentRoom = nextRoom;
+            if(!Objects.equals(currentRoom.getLocation(), "Fitness"))
             System.out.println(currentRoom.getStory());
+            else if(currentRoom.getLocation().equals("Fitness"))
+                System.out.println(story.readFromStory("Fitness1"));
+            //Ending:
+            else if(Objects.equals(currentRoom.getLocation(), "OutsideSDU after school") && inventory.inventory.contains("bike-helmet"))
+                System.out.println(story.readFromStory("EndingGood"));
+            else if(Objects.equals(currentRoom.getLocation(), "OutsideSDU after school") && !inventory.inventory.contains("bike-helmet"))
+                System.out.println(story.readFromStory("EndingBad"));
         }
     }
 

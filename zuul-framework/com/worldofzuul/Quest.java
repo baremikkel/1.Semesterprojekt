@@ -9,7 +9,7 @@ public class Quest implements iInventory {
     ArrayList<String> playerInventory = new ArrayList<>();
     Game game;
     Story story = new Story();
-    Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop;
+    Room outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop, Ending;
     boolean coffeeQuestComplete = false;
     boolean infoQuestComplete = false;
     boolean fitnessQuestComplete = false;
@@ -27,6 +27,7 @@ public class Quest implements iInventory {
         Classroom = game.roomArray[5];
         Nedenunder = game.roomArray[6];
         Bikeshop = game.roomArray[7];
+        Ending = game.roomArray[8];
     }
 
     void questContainer() {
@@ -37,7 +38,7 @@ public class Quest implements iInventory {
             coffeeQuestComplete = true;
         }
         else if (playerInventory.contains("info") && !infoQuestComplete) {
-            System.out.println("OBJECTIVE COMPLETE: You've been to the lecture, pick up your phone to continue.");
+
             if(inventory.inventory.contains("phone"))
             {
                 System.out.println(story.readFromStory("Classroom3"));
@@ -47,28 +48,32 @@ public class Quest implements iInventory {
                 Fitness.setExit("west", GydehuttenS);
                 infoQuestComplete = true;
             }
+            else
+               System.out.println("OBJECTIVE COMPLETE: You've been to the lecture, pick up your phone to continue.");
 
         }
         else if (playerInventory.contains("fitness") && !fitnessQuestComplete) {
+            System.out.println(story.readFromStory("Fitness"));
             System.out.println("OBJECTIVE COMPLETE: You've finished your workout, meet up with your friends in the bar.");
             GydehuttenS.setExit("west", Nedenunder);
             Nedenunder.setExit("east", GydehuttenS);
             fitnessQuestComplete = true;
         }
         else if (playerInventory.contains("drinking") && !beerQuestComplete) {
-            System.out.println("OBJECTIVE COMPLETE: you've drinked beers with your friends.");
+            System.out.println("OBJECTIVE COMPLETE: you've drunk beers with your friends.");
             GydehuttenS.setExit("south", Bikeshop);
             Bikeshop.setExit("north", GydehuttenS);
+            GydehuttenN.setExit("north",Ending);
             beerQuestComplete = true;
         }
         else if (playerInventory.contains("bike-helmet") && !helmetQuestComplete) {
             System.out.println("You've decided to buy a bike helmet.");
-            GydehuttenN.setExit("east", game.roomArray[5]);
+
             helmetQuestComplete = true;
         }
         else if (!playerInventory.contains("bike-helmet") && helmetQuestComplete) {
             System.out.println("You've decided not to buy a bike helmet");
-            GydehuttenN.setExit("east", game.roomArray[5]);
+            GydehuttenN.setExit("north",Ending);
         }
     }
 

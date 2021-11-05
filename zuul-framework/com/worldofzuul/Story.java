@@ -22,7 +22,6 @@ public class Story {
 
         int start = text.indexOf("<Start-" + room + ">");
         int end = text.indexOf("<End-" + room + ">");
-        String textSubstring = text.substring(start + room.length() + 8, end);
-        return textSubstring;
+        return text.substring(start + room.length() + 8, end);
     }
 }

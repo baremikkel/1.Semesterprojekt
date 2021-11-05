@@ -74,20 +74,20 @@ komme i fredagsbaren senere.
 * Foredragsholder: Husk hjelmen, næste gang du svinger dig op på jernhesten!
                    Tak fordi i gad at lytte med i dag.
 <End-Classroom2>
+
 <Start-Classroom3>
 Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
 næste modul er aflyst.
 
 Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
 spørger dig om du vil med ned og træne i fitness.
-
-Du er her:
 <End-Classroom3>
 
 
-<Start-Fitness>
-Du ankommer til SDU fitness, hvor dig og din studiekammerat gør jer klar til at få noget sved på panden.
+<Start-Fitness1>I ankommer til SDU fitness, hvor dig og din studiekammerat gør jer klar til at få noget sved på panden.
+Skriv start workout for at begynde<End-Fitness1>
 
+<Start-Fitness>
 Under træningen ender I med at snakke omkring forelæsningen:
 
 * Studiekammerat: Yo Samuel, den der foredragsholder har faktisk fat i noget når det kommer til at have cykelheljm på!
@@ -97,10 +97,7 @@ Under træningen ender I med at snakke omkring forelæsningen:
 
 Samtalen sætter ting hos eftertanke hos dig imens i træner videre.
 
-Træningen er nu færdig, hvilke passer perfekt med at fredagsbaren Nedenunder nu er åbnet.
-
-Du er her:
-<End-Fitness>
+Træningen er nu færdig, hvilke passer perfekt med at fredagsbaren Nedenunder nu er åbnet.<End-Fitness>
 
 
 <Start-Nedenunder>
@@ -159,6 +156,10 @@ Du er her:
 <End-GydehuttenS>
 
 
-<Start-Ending>
+<Start-EndingGood>
+good ending
+<End-EndingGood>
 
-<End-Ending>
+<Start-EndingBad>
+bad ending
+<End-EndingBad>
