@@ -76,7 +76,7 @@ komme i fredagsbaren senere.
 <End-Classroom2>
 
 <Start-Classroom3>
-Du mærker din telefon vibrerer i lommen, du tager den op og ser at der er kommet en notifikation på ItsLearning om at
+Du tager din telefon op ad lommen op og ser at der er kommet en notifikation på ItsLearning om at
 næste modul er aflyst.
 
 Du overvejer et kort sekund, hvad du skal bruge de næste to timer på inden fredagsbaren åbner, da en af dine studiekammerater
@@ -143,15 +143,33 @@ Du er her:
 
 <Start-Bikeshop>
 Du er her:
+I går ind i Bikeshopen og kigger rundt. I går over  til væggen med bike-helmets for at se hvad shoppen har af udvalg.
+* Cykelsmeden: Kan jeg hjælpe med noget?
+I vender jer rundt og ser at cykelsmeden bevæger sig hen til jer.
+* Karen: Vi står lige og kigger på en bike-helmet til min ven her.
+* Cykelsmed: Ja, det er jo altid en god ide. I må sige til hvis jeg kan hjælpe.
+* Dig: Tak, det skal vi nok.
+Cykelsmeden går igen.
+* Karen: Hvad syntes du så, skal du have en bike-helmet eller hvad?
+* Karen: Under alle omstændigheder bliver jeg nødt til a smutte nu, håber du træffer det rigtige valg. Vi ses.
+* Dig: Vi ses, kom godt hjem.
+---------
+Skriv: investigate
+For at skabe et overblik over hvad du kan købe i bikeshoppen.
+Skriv: buy + hvad du vil købe.
+Eksempel: buy bike-helmet
 <End-Bikeshop>
 
 
 <Start-GydehuttenN>
+Se hvilke directions muligheder du har og gå derhen.
 Du er her:
 <End-GydehuttenN>
 
 
 <Start-GydehuttenS>
+Se hvilke directions muligheder du har og gå derhen.
+
 Du er her:
 <End-GydehuttenS>
 
