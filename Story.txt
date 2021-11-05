@@ -38,9 +38,9 @@ Du er her:
 <Start-Cafeteria>
 Du kigger igen på klokken og ser at der nu kun er 5 minutter til at forlæsningen starter, du har travlt!
 ----------
-Skriv: "investigate"
-For at skabe et overblik over hvilke muligheder du har.
-Skriv: "buy" + hvad du ville købe
+Skriv: investigate
+For at skabe et overblik over hvad du kan købe i cafeteria
+Skriv: buy + hvad du vil købe
 Eksempel: buy coffee
 
 Du er her:
@@ -105,15 +105,40 @@ Du er her:
 
 <Start-Nedenunder>
 Du står nu i fredagsbaren. Du kigger dig rundt og finder dine venner der sidder i en sofagruppe.
-Du er rigtig tørsigt efter en iskold øl.
+Du er rigtig tørsigt efter en iskold øl og går op i baren for at købe noget at drikke.
 ----------
-Skriv: "investigate"
-For at skabe et overblik over hvilke muligheder du har.
-Skriv: "buy" + hvad du ville købe
+Skriv: investigate
+For at skabe et overblik over hvad du kan købe i fredagsbaren.
+Skriv: buy + hvad du vil købe
 Eksempel: buy odense-classic
 -----------
 
-* Tristan:
+* Tristan: Hvad så Samuel... Hvad synes om foredraget i dag?
+* Samuel:  Lidt kedeligt, jeg må indrømme at jeg zonede ud undervejs..
+* Tristan: Jeg synes bare det er sindssygt fedt, at tænke på at en cykelhjelm måske stammer fra vikinghjelme.
+           Måske det er lidt nørdet men det lægen sagde til mig dengang jeg brækkede mit underben har virkelig sat sine spor i mig.
+* Samuel:  Hvad sagde lægen da?
+* Tristan: Da han fik billederne tilbage fra røngten spurgte han mig om jeg cyklede med cykelhjelm og da jeg sagde nej sagde
+           han hvis det var mit kranie der var skadet på samme måde som mit underben havde jeg været død på stedet.
+           Det satte altså nogle tanker i gang hos mig og derfor cykler jeg med cykelhjelm i dag.
+* Samuel:  Hold da op, det er lidt som om det er meget mere skræmmende når det er en læge der siger det..
+
+Du har drukket ud gå op i baren og køb noget mere at drikke.
+-----------
+Du kommer tilbage med mere og drikke da du hører nogle af dine sidder og snakker om brugen af cykelhjelm
+* Victoria: Jeg bruger cykelhjelm fordi den jeg har købt er guld og efter jeg har fået den har jeg simpelthen fået så mange komplimenter.
+* Morten:   Jeg bruger cykelhjelm fordi når jeg er fuld så vælter jeg ofte og fordi engang da jeg væltede uden og slog jeg mit hoved ret meget.
+* Anders:   Jeg er mors dreng og jeg bruger den fordi min mor siger det er en god idé.
+-----------
+
+Du er blevet ret fuld og Karen spørger dig om du vil med hjem og det vil du godt. I går mod udgangen af fredagsbaren da Karen siger noget til dig.
+
+* Karen:  Samu...
+* Samuel: Jaaa?
+* Karen:  Jeg synes virkelig vi burde gå forbi bikeshoppen og købe en cykelhjelm til dig. Jeg ville blive enormt ked af det, hvis der skete dig noget
+          på vejen hjem da jeg virkelig holder af dig.
+-----------
+Skriv stop drinking for at afslutte din tur i fredagsbaren
 
 Du er her:
 <End-Nedenunder>
