@@ -125,6 +125,8 @@ Du er blevet ret fuld og Karen spørger dig om du vil med hjem og det vil du god
 * Samuel: Jaaa?
 * Karen:  Jeg synes virkelig vi burde gå forbi bikeshoppen og købe en cykelhjelm til dig. Jeg ville blive enormt ked af det, hvis der skete dig noget
           på vejen hjem da jeg virkelig holder af dig.
+-----------
+Skriv stop drinking for at afslutte din tur i fredagsbaren
 
 Du er her:
 <End-Nedenunder>
