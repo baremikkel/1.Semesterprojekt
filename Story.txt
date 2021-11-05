@@ -175,7 +175,12 @@ Du er her:
 
 
 <Start-EndingGood>
-good ending
+Du besluttede dig for at købe en bike-helmet og du er glad for beslutningen.
+Alle de historier du har hørt i løbet af dagen, har sat sine spor i dig.
+Du går hen til hovedindgangen og ud til din cykel som du låser op.
+Du håber lidt på, at du måske kan nå at indhente Karen, måske hun skulle på toilet inden hun cyklede hjem.
+Du sætter dig op på cyklen og cykler langsomt hjemad. Du kan godt mærke at det er koldt udenfor og vejen bæger
+præg af at frosten er kommet, det er en lille smule glat men du kommer sikkert hjem.
 <End-EndingGood>
 
 <Start-EndingBad>
