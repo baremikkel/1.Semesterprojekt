@@ -124,7 +124,7 @@ public class Game {
             {
                 inventory.addItem(command.getSecondWord());
                 System.out.println("You bought a " + command.getSecondWord());
-                if(Objects.equals(command.getSecondWord(),"coffee"));
+                if(Objects.equals(command.getSecondWord(),"coffee")||Objects.equals(command.getSecondWord(),"bike-helmet"));
                 {
                     quest.addToPlayerInventory(command.getSecondWord());
                 }
@@ -163,7 +163,7 @@ public class Game {
                     inventory.removeItem("phone");
                     items.PickupItems.get(currentRoom.getLocation()).add("phone");
                     quest.addToPlayerInventory("info");
-                } else if (Objects.equals(command.getSecondWord(), "workout")) {
+                } else if (Objects.equals(command.getSecondWord(), "workout")&&currentRoom.getLocation()=="Fitness") {
                     quest.addToPlayerInventory("fitness");
                 }
             }

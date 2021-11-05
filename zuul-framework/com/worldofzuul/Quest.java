@@ -61,13 +61,13 @@ public class Quest implements iInventory {
             Bikeshop.setExit("north", GydehuttenS);
             beerQuestComplete = true;
         }
-        else if (playerInventory.contains("helmet") && !helmetQuestComplete) {
-            System.out.println("You've decided to buy a helmet.");
+        else if (playerInventory.contains("bike-helmet") && !helmetQuestComplete) {
+            System.out.println("You've decided to buy a bike helmet.");
             GydehuttenN.setExit("east", game.roomArray[5]);
             helmetQuestComplete = true;
         }
-        else if (!playerInventory.contains("helmet") && helmetQuestComplete) {
-            System.out.println("You've decided not to buy a helmet");
+        else if (!playerInventory.contains("bike-helmet") && helmetQuestComplete) {
+            System.out.println("You've decided not to buy a bike helmet");
             GydehuttenN.setExit("east", game.roomArray[5]);
         }
     }
