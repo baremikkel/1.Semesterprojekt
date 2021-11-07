@@ -175,9 +175,27 @@ Du er her:
 
 
 <Start-EndingGood>
-good ending
+Du besluttede dig for at købe en bike-helmet og du er glad for beslutningen.
+Alle de historier du har hørt i løbet af dagen, har sat sine spor i dig.
+Du går hen til hovedindgangen og ud til din cykel som du låser op.
+Du håber lidt på, at du måske kan nå at indhente Karen, måske hun skulle på toilet inden hun cyklede hjem.
+Du sætter dig op på cyklen og cykler langsomt hjemad. Du kan godt mærke at det er koldt udenfor og vejen bæger
+præg af at frosten er kommet, det er en lille smule glat men du kommer sikkert hjem.
 <End-EndingGood>
 
 <Start-EndingBad>
-bad ending
+Du besluttede dig for ikke at købe en bike-helmet. Den var alligevel for kikset.
+Du tænker "Hvad er det værste der kan ske?"
+Du går ud af hovedindgangen og ud til din cykel som du låser op.
+Du hopper op på cyklen og begynder at cykle hjem i det kolde vejr.
+Du håber at karen ikke ser dig uden en bike-helmet, da hun ville blive skuffet.
+Du kører og tænker på de historier du har hørt fra folk idag om bike-helmets,
+og tænker til dig selv at det har du ikke brug for.
+Du kan godt finde ud af at cykle.
+Du kører i dine egne tanker, da du pludselig bliver kørt ind i bagfra af en bil.
+DU vågner på hospitalet og kan ikke bevæge din krop.
+En læge kommer ind og ser du er vågnet og fortæller at du har fået en hjerneblødning.
+Du er blevet lam fra nakken og ned.
+Måske man skulle have købt den bike-helmet alligevel.
+
 <End-EndingBad>
