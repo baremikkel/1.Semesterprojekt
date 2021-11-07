@@ -37,7 +37,7 @@ public class Room
     {
         if(!Objects.equals(location, "Ending"))
         {
-            return story.readFromStory(location)+description+'\n'+getExitString();
+            return story.readFromStory(location)+"Location: "+description+'\n'+getExitString();
         }
         return "";
     }
