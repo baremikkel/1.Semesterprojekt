@@ -19,7 +19,7 @@ public class Game {
         inventory = new Inventory();
         items = new Items();
         story = new Story();
-        this.quest = new Quest(this,inventory);
+        this.quest = new Quest(this, inventory);
     }
 
     //main der starter spillet
@@ -40,7 +40,7 @@ public class Game {
         Classroom = new Room("in your classroom", "Classroom");
         Nedenunder = new Room("in the SDU bar", "Nedenunder");
         Bikeshop = new Room("in the bikeshop", "Bikeshop");
-        Ending = new Room("the ending", "outsideSDU after school");
+        Ending = new Room("the ending", "Ending");
         roomArray = new Room[]{outsideSDU, GydehuttenN, GydehuttenS, Cafeteria, Fitness, Classroom, Nedenunder, Bikeshop, Ending};
 
 
@@ -48,7 +48,7 @@ public class Game {
 
         GydehuttenN.setExit("west", Cafeteria);
         Cafeteria.setExit("east", GydehuttenN);
-       
+
         currentRoom = outsideSDU;
     }
 
@@ -71,6 +71,7 @@ public class Game {
         System.out.println();
         System.out.println(currentRoom.getStory());
     }
+
     //En boolean der tjekker om rummet som man bruger kommandoen "Buy" i er en "butik"
     //En booelean der tjekker om rummet man er i kan bruge kommandoen "Pickup"
     boolean PickupableRoom(String room) {
@@ -112,68 +113,55 @@ public class Game {
         }
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        }
-        else if (commandWord == CommandWord.GO) {
+        } else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        }
-        else if (commandWord == CommandWord.QUIT) {
+        } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        }
-        else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
-            if(items.itemList(command.getSecondWord(), currentRoom.getLocation(), this))
-            {
+        } else if (commandWord == CommandWord.BUY && BuyableRoom(currentRoom.getLocation())) {
+            if (items.itemList(command.getSecondWord(), currentRoom.getLocation(), this)) {
                 inventory.addItem(command.getSecondWord());
                 System.out.println("You bought a " + command.getSecondWord());
-                if(Objects.equals(command.getSecondWord(),"coffee")||Objects.equals(command.getSecondWord(),"bike-helmet"));
+                if (Objects.equals(command.getSecondWord(), "coffee") || Objects.equals(command.getSecondWord(), "bike-helmet"))
+                    ;
                 {
                     quest.addToPlayerInventory(command.getSecondWord());
                 }
-            }
-            else
-            {
+            } else {
                 System.out.println("You can't buy this here");
             }
-        }
-        else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
+        } else if (commandWord == CommandWord.PICK_UP && PickupableRoom(currentRoom.getLocation())) {
             //Grundet årsagen til at man kun kan samle noget op hvis det er i rummet
             //Tjekker vi om tingen er i rummet
-            if (items.itemList(command.getSecondWord(), currentRoom.getLocation(),this)) {
+            if (items.itemList(command.getSecondWord(), currentRoom.getLocation(), this)) {
                 inventory.addItem(command.getSecondWord());
                 quest.addItem(command.getSecondWord());
                 items.removeItem(currentRoom.getLocation(), command.getSecondWord());
                 System.out.println("You picked up " + command.getSecondWord());
             } else
                 System.out.println("The thing you are trying to pickup doesn't exist.");
-        }
-        else if (commandWord == CommandWord.INVENTORY) {
+        } else if (commandWord == CommandWord.INVENTORY) {
             inventory.listInventory();
-        }
-        else if (commandWord == CommandWord.INVESTIGATE) {
+        } else if (commandWord == CommandWord.INVESTIGATE) {
             if (PickupableRoom(currentRoom.getLocation()))
                 items.checkItemsPickup(currentRoom);
             else
                 items.checkItemsBuy(currentRoom);
-        }
-        else if (commandWord == CommandWord.START  && command.hasSecondWord())
-        {
-            if(Objects.equals(currentRoom.getLocation(), "Classroom") || Objects.equals(currentRoom.getLocation(), "Fitness")) {
+        } else if (commandWord == CommandWord.START && command.hasSecondWord()) {
+            if (Objects.equals(currentRoom.getLocation(), "Classroom") || Objects.equals(currentRoom.getLocation(), "Fitness")) {
                 if (Objects.equals(command.getSecondWord(), "lecture")) {
                     getText(currentRoom.location + "2");
                     inventory.removeItem("phone");
                     items.PickupItems.get(currentRoom.getLocation()).add("phone");
                     quest.addToPlayerInventory("info");
-                } else if (Objects.equals(command.getSecondWord(), "workout")&&currentRoom.getLocation()=="Fitness") {
+                } else if (Objects.equals(command.getSecondWord(), "workout") && currentRoom.getLocation() == "Fitness") {
                     quest.addToPlayerInventory("fitness");
                 }
             }
-        }
-        else if (commandWord == CommandWord.STOP && command.hasSecondWord())
-        {
-            if(Objects.equals(command.getSecondWord(), "drinking")) {
+        } else if (commandWord == CommandWord.STOP && command.hasSecondWord()) {
+            if (Objects.equals(command.getSecondWord(), "drinking")) {
                 quest.addToPlayerInventory("drinking");
             }
-        }
-        else {
+        } else {
             System.out.println("You can´t do this here!");
         }
 
@@ -185,7 +173,6 @@ public class Game {
     //Hjælpe tekst
     private void printHelp() {
         getText("Help");
-
     }
 
     //går til det næste rum, så længe er en retning at følge... hvis der ikke noget rum skriver det "There is no door!"
@@ -202,15 +189,20 @@ public class Game {
             System.out.println("You can´t go there");
         } else {
             currentRoom = nextRoom;
-            if(!Objects.equals(currentRoom.getLocation(), "Fitness"))
-            System.out.println(currentRoom.getStory());
-            else if(currentRoom.getLocation().equals("Fitness"))
-                System.out.println(story.readFromStory("Fitness1"));
+
             //Ending:
-            else if(Objects.equals(currentRoom.getLocation(), "OutsideSDU after school") && inventory.inventory.contains("bike-helmet"))
-                System.out.println(story.readFromStory("EndingGood"));
-            else if(Objects.equals(currentRoom.getLocation(), "OutsideSDU after school") && !inventory.inventory.contains("bike-helmet"))
-                System.out.println(story.readFromStory("EndingBad"));
+            if (Objects.equals(currentRoom.getLocation(), "Ending") && quest.inventory.inventory.contains("bike-helmet")) {
+                getText("EndingGood");
+            }
+            else if (Objects.equals(currentRoom.getLocation(), "Ending") && !quest.inventory.inventory.contains("bike-helmet")) {
+                getText("EndingBad");
+            }
+
+            if (!Objects.equals(currentRoom.getLocation(), "Fitness"))
+                System.out.println(currentRoom.getStory());
+            else if (currentRoom.getLocation().equals("Fitness"))
+                System.out.println(story.readFromStory("Fitness1"));
+
         }
     }
 

@@ -17,7 +17,6 @@ public class Inventory implements iInventory {
         for (String s : inventory) {
             System.out.println(s);
         }
-
     }
 
     public void addItem(String item) {

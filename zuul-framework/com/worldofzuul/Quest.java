@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Quest implements iInventory {
-    ArrayList<String> quest = new ArrayList<>();
     Inventory inventory;
     ArrayList<String> playerInventory = new ArrayList<>();
     Game game;
@@ -68,21 +67,20 @@ public class Quest implements iInventory {
         }
         else if (playerInventory.contains("bike-helmet") && !helmetQuestComplete) {
             System.out.println("You've decided to buy a bike helmet.");
-
             helmetQuestComplete = true;
         }
         else if (!playerInventory.contains("bike-helmet") && helmetQuestComplete) {
             System.out.println("You've decided not to buy a bike helmet");
-            GydehuttenN.setExit("north",Ending);
         }
     }
 
     boolean checkQuestItem(String item) {
         boolean checker = false;
-        String[] questList = {"coffee", "info", "fitness", "drinking", "helmet"};
+        String[] questList = {"coffee", "info", "fitness", "drinking", "bike-helmet"};
         for (String s : questList) {
             if (Objects.equals(item, s)) {
                 checker = true;
+                break;
             }
         }
         return checker;
@@ -92,7 +90,6 @@ public class Quest implements iInventory {
         if (checkQuestItem(item)) {
             playerInventory.add(item);
         }
-
     }
 
     public void listInventory() {

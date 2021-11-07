@@ -1,5 +1,6 @@
 package com.worldofzuul;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.HashMap;
 
@@ -34,7 +35,11 @@ public class Room
     //Udskriver hvor du er, og hvor du kan gå hen
     public String getStory()
     {
-        return story.readFromStory(location)+description+'\n'+getExitString();
+        if(!Objects.equals(location, "Ending"))
+        {
+            return story.readFromStory(location)+description+'\n'+getExitString();
+        }
+        return "";
     }
 
     //Udskriver hvilke veje man kan tage i det specifikke rum.
