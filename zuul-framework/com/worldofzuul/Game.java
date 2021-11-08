@@ -122,7 +122,6 @@ public class Game {
                 inventory.addItem(command.getSecondWord());
                 System.out.println("You bought a " + command.getSecondWord());
                 if (Objects.equals(command.getSecondWord(), "coffee") || Objects.equals(command.getSecondWord(), "bike-helmet"))
-                    ;
                 {
                     quest.addToPlayerInventory(command.getSecondWord());
                 }
@@ -161,6 +160,7 @@ public class Game {
             if (Objects.equals(command.getSecondWord(), "drinking")) {
                 quest.addToPlayerInventory("drinking");
             }
+                getText("Nedenunder1");
         } else {
             System.out.println("You can´t do this here!");
         }
@@ -198,11 +198,10 @@ public class Game {
                 getText("EndingBad");
             }
 
-            if (!Objects.equals(currentRoom.getLocation(), "Fitness"))
+            if (!Objects.equals(currentRoom.getLocation(), "Fitness") || !Objects.equals(currentRoom.getLocation(),"Nedenunder"))
                 System.out.println(currentRoom.getStory());
             else if (currentRoom.getLocation().equals("Fitness"))
-                System.out.println(story.readFromStory("Fitness1"));
-
+                getText("Fitness1");
         }
     }
 
