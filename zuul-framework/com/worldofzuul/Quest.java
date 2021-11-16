@@ -49,7 +49,6 @@ public class Quest implements iInventory {
             }
             else
                System.out.println("OBJECTIVE COMPLETE: You've been to the lecture, pick up your phone to continue.");
-
         }
         else if (playerInventory.contains("fitness") && !fitnessQuestComplete) {
             System.out.println(story.readFromStory("Fitness"));

@@ -5,7 +5,6 @@ import java.util.*;
 public class Items {
     Map<String, ArrayList<String>> BuyableItems = new HashMap<String,ArrayList<String>>();
     Map<String, ArrayList<String>> PickupItems = new HashMap<String,ArrayList<String>>();
-    Room room;
 
     Items()
     {
